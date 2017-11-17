@@ -1,29 +1,29 @@
 {
-  "name": "joeycumines/phelp",
-  "description": "PHelP contains useful tools that PHP doesn't - Helpers for PHP 7.1+",
-  "type": "library",
-  "license": "Apache-2.0",
-  "authors": [
-    {
-      "name": "Joey Cumines",
-      "email": "joeycumines@gmail.com"
+    "name": "joeycumines\/phelp",
+    "description": "PHelP contains useful tools that PHP doesn't - Helpers for PHP 7.1+",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Joey Cumines",
+            "email": "joeycumines@gmail.com"
+        }
+    ],
+    "support": {
+        "source": "https:\/\/github.com\/joeycumines\/phelp",
+        "issues": "https:\/\/github.com\/joeycumines\/phelp\/issues"
+    },
+    "require": {
+        "php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phelp\\": "src\/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Phelp\\": "tests\/"
+        }
     }
-  ],
-  "support": {
-    "source": "https://github.com/joeycumines/phelp",
-    "issues": "https://github.com/joeycumines/phelp/issues"
-  },
-  "require": {
-    "php": ">=7.1"
-  },
-  "autoload": {
-    "psr-4": {
-      "Phelp\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\Phelp\\": "tests/"
-    }
-  }
 }
