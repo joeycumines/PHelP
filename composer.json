@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Phelp\\": "src\/"
+            "JoeyCumines\\Phelp\\": "src\/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Phelp\\": "tests\/"
+            "Tests\\JoeyCumines\\Phelp\\": "tests\/"
         }
     }
 }
