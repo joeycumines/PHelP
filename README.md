@@ -23,6 +23,47 @@ code reviews.
 9. Unless specifically designed to be stateful, everything must be stateless
 10. Clearly document all functionality, it is desirable to be able to know
     what something does at a glance
+11. Names like classes and namespaces should be named as if they were all in
+    lowercase words, then conjoined, so `JsonObject` not `JSONObject`, for as
+    an example.
+
+## Release Plan
+
+This will be maintained, and at this stage I will be regularly adding 
+functionality - though it starts from almost nothing. I will be re-writing
+some features that I wrote before, some I have wanted before, and probably
+just doing what I want.
+
+## Package Overview
+
+This package uses Psr-4 namespaces. The `src` folder is `autoload` and mapped
+to `JoeyCumines/Phelp`. The `tests` folder is `autoload-dev` and mapped to
+`Tests/JoeyCumines/Phelp`.
+
+The following headings are based on the namespaces nested within those two.
+
+### Algorithms
+
+Solutions, grouped by functionality rather than concepts or category for
+better code structure. The code in here **WILL CHANGE** at a much greater rate
+than code in the `JoeyCumines/Phelp/Helpers` namespace.
+
+#### Adaptors
+
+TBD really, this namespace will contain the concrete implementations of 
+interfaces defined for return values etc of helper methods.
+
+### Helpers
+
+"Helper" classes implement and document a thin layer between implementations
+in `JoeyCumines/Phelp/Algorithms`. Somewhat like the separation between the
+controller and service layer in many modern frameworks.
+
+Still refining the structure of this namespace.
+ 
+#### Interfaces
+
+TBD as well, should contain interfaces used by helpers.
 
 ## Contributing
 
@@ -32,10 +73,3 @@ adding something, go for your life, I am happy to review PR's even if it's
 just something relevant you wrote that you want feedback for. I am not at
 all possessive about this project, and I am happy to incorporate any new code
 under the same license, if it's something I can agree on.
-
-## Release Plan
-
-This will be maintained, and at this stage I will be regularly adding 
-functionality - though it starts from almost nothing. I will be re-writing
-some features that I wrote before, some I have wanted before, and probably
-just doing what I want.
