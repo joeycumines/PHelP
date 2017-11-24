@@ -18,8 +18,8 @@ code reviews.
     good chance to pass a professional code review
 8. As a general rule, all aggregate classes that provide more than one 
     functionality must always use final classes implementing both a singleton
-    style `getInstance` method, have no other static methods, and provide a
-    public default constructor for Dependency Injection
+    style `getInstance` method, have no other public static methods, and
+    provide a public default constructor for Dependency Injection
 9. Unless specifically designed to be stateful, everything must be stateless
 10. Clearly document all functionality, it is desirable to be able to know
     what something does at a glance
@@ -64,6 +64,12 @@ Still refining the structure of this namespace.
 #### Interfaces
 
 TBD as well, should contain interfaces used by helpers.
+
+### Utilities
+
+Anything that leans towards solving a specific problem instead of providing
+a more general solution. A good example of this would be testing utilities,
+which fill a very specific niche.
 
 ## Contributing
 

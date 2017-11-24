@@ -1,38 +1,39 @@
 <?php
 
-namespace Tests\JoeyCumines\Phelp\Utility;
+namespace JoeyCumines\Phelp\Utility\Testing;
 
 /**
  * Trait AssertExactEquals
- * @package Tests\JoeyCumines\Phelp\Utility
+ * @package JoeyCumines\Phelp\Utility\Testing
  *
  * A trait which gives your test cases access to a very useful exact equals assertion method, which has a formatted
  * output message that uses cleaned `var_dump` for more information.
  */
 trait AssertExactEquals
 {
-    abstract function assertTrue($condition, $message = '');
+    abstract protected function assertTrue($condition, $message = '');
 
     /**
-     * Assert that values are equal using `===`, note that this returns a bool so it can be used for code coverage.
+     * Assert that values are equal using `===`, with detailed nicely formatted error message output that is
+     * lazily generated.
+     *
+     * NOTES:
+     * - this will likely butcher multi-byte strings if it has to concat them
      *
      * @param mixed $expected
      * @param mixed $actual
      * @param string $message
      * @param int $lineLength The max line length for the message, if it's < 1 only $message will be used.
-     *
-     * @return bool
      */
-    public function assertExactEquals($expected, $actual, $message = '', int $lineLength = 80): bool
+    public function assertExactEquals($expected, $actual, $message = '', int $lineLength = 80): void
     {
         $equal = $expected === $actual;
 
         // we can break out early if the test is going to pass, or if the line length was invalid, since we don't
-        // have to generate a message in these cases
+        // have to generate a message in these cases - we still assert though to keep the numbers consistent
         if (true === $equal || 1 > $lineLength) {
             $this->assertTrue($equal, $message);
-
-            return $equal;
+            return;
         }
 
         $message = trim((string)$message);
@@ -69,10 +70,31 @@ trait AssertExactEquals
             }
             $message[$x] = implode(':', $message[$x]);
         }
-        $message = implode('', $message);
+        $message = trim((string)implode('', $message));
 
         $template = str_repeat('#', $lineLength - 1);
         $template = $template . PHP_EOL . '#%s' . PHP_EOL . $template;
+
+        $splitMessage = preg_split('~\R~u', $message);
+
+        if (false === is_array($splitMessage)) {
+            $splitMessage = explode(
+                "\n",
+                str_replace(
+                    "\r",
+                    "\n",
+                    str_replace(
+                        "\n\r",
+                        "\n",
+                        str_replace(
+                            "\r\n",
+                            "\n",
+                            $message
+                        )
+                    )
+                )
+            );
+        }
 
         // wrap the message in a border to make it more readable, text wrapping long lines
         $message = sprintf(
@@ -103,15 +125,12 @@ trait AssertExactEquals
 
                         return implode(PHP_EOL, $line);
                     },
-                    preg_split('~\R~u', trim($message))
+                    $splitMessage
                 )
             )
         );
 
         // perform an assertion which will output the error
         $this->assertTrue($equal, $message);
-
-        // this point should never be reached
-        return $equal;
     }
 }
