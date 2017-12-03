@@ -48,10 +48,11 @@ Solutions, grouped by functionality rather than concepts or category for
 better code structure. The code in here **WILL CHANGE** at a much greater rate
 than code in the `JoeyCumines/Phelp/Helpers` namespace.
 
-#### Adaptors
+### Utilities
 
-TBD really, this namespace will contain the concrete implementations of 
-interfaces defined for return values etc of helper methods.
+Anything that leans towards solving a specific problem instead of providing
+a more general solution. A good example of this would be testing utilities,
+which fill a very specific niche.
 
 ### Helpers
 
@@ -59,17 +60,14 @@ interfaces defined for return values etc of helper methods.
 in `JoeyCumines/Phelp/Algorithms`. Somewhat like the separation between the
 controller and service layer in many modern frameworks.
 
-Still refining the structure of this namespace.
- 
-#### Interfaces
+### Interfaces
 
-TBD as well, should contain interfaces used by helpers.
+All interfaces, provided to be used as dependencies (in place of a concrete
+class), are here.
 
-### Utilities
+### Adaptors
 
-Anything that leans towards solving a specific problem instead of providing
-a more general solution. A good example of this would be testing utilities,
-which fill a very specific niche.
+Concrete implementations of interfaces, that's it.
 
 ## Contributing
 
