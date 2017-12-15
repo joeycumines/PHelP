@@ -1,19 +1,22 @@
 # PHelP
 
-PHelP contains useful tools that PHP doesn't - Helpers for PHP 7.1+
+PHelP contains useful tools that PHP doesn't - Helpers for PHP 5.6+
 
 Written by Joseph Cumines - but I would welcome contributions or even just
 code reviews.
 
 ## Rulebook
 
-1. Helper libraries with no external dependencies (beyond the PHP version)
+1. Helper libraries with no external dependencies that are not of a similar
+    standard AND very likely to be maintained
 2. Make logical groupings of functionality, and make an effort to follow best 
     practices
 3. Always tested, cover all documented or important cases, at minimum
 4. Functional style preferred, immutable objects favoured
-5. Minimal or no coupling (between libraries, etc) without sacrificing "DRY"
+5. Minimal or no coupling as far as practical (between libraries, etc),
+    without sacrificing the "DRY" principle
 6. Don't change method signatures without a very good reason, or very low risk
+    (backwards-compatible changes are ok)
 7. Code must be written to be used in production, and must at least have a
     good chance to pass a professional code review
 8. As a general rule, all aggregate classes that provide more than one 
@@ -44,9 +47,12 @@ The following headings are based on the namespaces nested within those two.
 
 ### Algorithms
 
-Solutions, grouped by functionality rather than concepts or category for
-better code structure. The code in here **WILL CHANGE** at a much greater rate
-than code in the `JoeyCumines/Phelp/Helpers` namespace.
+Solutions, grouped by functionality rather than project or category for a
+better code structure. While similar, the purpose of this namespace
+differs to `JoeyCumines/Phelp/Utilities`, with a focus on solutions including
+(but not limited to) implementations of computer-sciencey things like sorting
+algorithms, primitive type helpers, and general functions that extend core
+PHP functionality, similar to PHP's `array_*` methods.
 
 ### Utilities
 
@@ -57,8 +63,9 @@ which fill a very specific niche.
 ### Helpers
 
 "Helper" classes implement and document a thin layer between implementations
-in `JoeyCumines/Phelp/Algorithms`. Somewhat like the separation between the
-controller and service layer in many modern frameworks.
+in `JoeyCumines/Phelp/Algorithms`. Helpers are provided as a less-specific 
+catch-all way to import your dependencies, and offer the benefit of being
+able to mock out their methods.
 
 ### Interfaces
 
