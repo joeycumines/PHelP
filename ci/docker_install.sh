@@ -17,3 +17,5 @@ chmod +x /usr/local/bin/phpunit
 pecl install xdebug
 # Enable Xdebug
 docker-php-ext-enable xdebug
+
+cp ci/php.ini /usr/local/etc/php/conf.d/test.ini
