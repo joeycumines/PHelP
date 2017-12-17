@@ -5,6 +5,9 @@ PHelP contains useful tools that PHP doesn't - Helpers for PHP 5.6+
 Written by Joseph Cumines - but I would welcome contributions or even just
 code reviews.
 
+[![pipeline status](https://gitlab.com/joeycumines/phelp/badges/master/pipeline.svg)](https://gitlab.com/joeycumines/phelp/commits/master)
+[![coverage report](https://gitlab.com/joeycumines/phelp/badges/master/coverage.svg)](https://gitlab.com/joeycumines/phelp/commits/master)
+
 ## Rulebook
 
 1. Helper libraries with no external dependencies that are not of a similar
