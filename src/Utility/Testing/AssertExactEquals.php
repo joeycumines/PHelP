@@ -25,7 +25,7 @@ trait AssertExactEquals
      * @param string $message
      * @param int $lineLength The max line length for the message, if it's < 1 only $message will be used.
      */
-    public function assertExactEquals($expected, $actual, $message = '', int $lineLength = 80): void
+    public function assertExactEquals($expected, $actual, $message = '', int $lineLength = 80)
     {
         $equal = $expected === $actual;
 
