@@ -18,7 +18,7 @@ class GetVarDumpTest extends TestCase
         $this->target = $this;
     }
 
-    private function standardizeStringMultiPlatform(string $value): string
+    private function standardizeStringMultiPlatform($value)
     {
         return preg_replace('/[\\s]+/u', '', $value);
     }
