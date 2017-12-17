@@ -14,6 +14,6 @@ curl --location --output /usr/local/bin/phpunit https://phar.phpunit.de/phpunit-
 chmod +x /usr/local/bin/phpunit
 
 # Install Xdebug
-docker-php-ext-install xdebug
+pecl install xdebug
 # Enable Xdebug
 docker-php-ext-enable xdebug
