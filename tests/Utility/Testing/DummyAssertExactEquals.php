@@ -13,7 +13,7 @@ class DummyAssertExactEquals
     /**
      * @return array[]
      */
-    public function getCalls(): array
+    public function getCalls()
     {
         return $this->calls;
     }
