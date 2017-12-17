@@ -10,9 +10,10 @@ apt-get update -yqq
 apt-get install git -yqq
 
 # Install phpunit, the tool that we will use for testing
-curl --location --output /usr/local/bin/phpunit https://phar.phpunit.de/phpunit.phar
+curl --location --output /usr/local/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar -L
 chmod +x /usr/local/bin/phpunit
 
-# Install mysql driver
-# Here you can install any other extension that you need
-#docker-php-ext-install pdo_mysql
+# Install Xdebug
+docker-php-ext-install xdebug
+# Enable Xdebug
+docker-php-ext-enable xdebug
