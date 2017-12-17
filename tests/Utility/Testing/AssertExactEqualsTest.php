@@ -29,7 +29,8 @@ class AssertExactEqualsTest extends TestCase
 
         $calls = $case->getCalls();
         $this->assertCount(1, $calls, 'unexpected number of calls to assertTrue');
-        [$callCondition, $callMessage] = reset($calls);
+        $callCondition = $calls[0];
+        $callMessage = $calls[1];
         $this->assertEquals($equal, $callCondition, "Unexpected evaluation of assertExactEquals: \n" . $callMessage);
         $this->assertTrue(is_bool($callCondition));
 
