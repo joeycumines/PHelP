@@ -21,25 +21,7 @@ class AssertExactEqualsTest extends TestCase
      */
     public function testAssertExactEquals($expected, $actual, $message, $lineLength, $equal)
     {
-        $case = new class
-        {
-            use AssertExactEquals;
-
-            private $calls = [];
-
-            /**
-             * @return array[]
-             */
-            public function getCalls(): array
-            {
-                return $this->calls;
-            }
-
-            public function assertTrue($condition, $message = '')
-            {
-                $this->calls[] = func_get_args();
-            }
-        };
+        $case = new DummyAssertExactEquals();
 
         ob_start();
         $case->assertExactEquals($expected, $actual, $message, $lineLength);
@@ -73,12 +55,15 @@ class AssertExactEqualsTest extends TestCase
             if (true === $callCondition) {
                 // case 1 - no need to do any var_dump, so there is only $message
                 $this->assertEquals($message, $callMessage);
-            } else if (1 !== $lineLength) {
+            } elseif (1 !== $lineLength) {
                 $noWrapMessage = str_replace(PHP_EOL . '# ', PHP_EOL, str_replace(PHP_EOL . '> ', '', $callMessage));
 
                 // case 2 - there was a failure, so a `var_dump` of each variable was performed
                 $expectedInd = strpos($noWrapMessage, $this->getVarDump($expected));
-                $this->assertTrue(true === is_int($expectedInd), $noWrapMessage . PHP_EOL . $this->getVarDump($expected));
+                $this->assertTrue(
+                    true === is_int($expectedInd),
+                    $noWrapMessage . PHP_EOL . $this->getVarDump($expected)
+                );
                 $actualInd = strpos($noWrapMessage, $this->getVarDump($actual));
                 $this->assertTrue(true === is_int($actualInd));
 
@@ -98,77 +83,77 @@ class AssertExactEqualsTest extends TestCase
                 1.1000,
                 '',
                 80,
-                true
+                true,
             ],
             'float unequal with message' => [
                 1.2,
                 1.20001,
                 ' a non empty message ',
                 80,
-                false
+                false,
             ],
             'float vs int same number but unequal, with message' => [
                 1,
                 1.0,
                 'float vs string of the same number will be false',
                 80,
-                false
+                false,
             ],
             'object equal' => [
                 $dummyObject1,
                 $dummyObject1,
                 '',
                 80,
-                true
+                true,
             ],
             'object not equal' => [
                 $dummyObject2,
                 $dummyObject1,
                 '',
                 80,
-                false
+                false,
             ],
             'nested array equal' => [
                 [[$dummyObject1, $dummyObject2]],
                 [[$dummyObject1, $dummyObject2]],
                 '',
                 80,
-                true
+                true,
             ],
             'nested array not equal' => [
                 [[$dummyObject1, $dummyObject2]],
                 [[$dummyObject1, $dummyObject1]],
                 '',
                 80,
-                false
+                false,
             ],
             'booleans unequal no message' => [
                 true,
                 false,
                 '',
                 80,
-                false
+                false,
             ],
             'booleans unequal 0 width' => [
                 true,
                 false,
                 '',
                 0,
-                false
+                false,
             ],
             'booleans unequal -1 width' => [
                 true,
                 false,
                 '',
                 -1,
-                false
+                false,
             ],
             'booleans unequal 1 width' => [
                 true,
                 false,
                 '',
                 1,
-                false
+                false,
             ],
             'long word wrapped string, not equals' => [
                 <<<'EOT'
@@ -183,7 +168,7 @@ EOT
                 false,
                 'the message',
                 10,
-                false
+                false,
             ],
             'chinese characters, test line length is by mb characters' => [
                 1,
@@ -270,14 +255,14 @@ EOT
                 ,
                 'the message',
                 10,
-                false
+                false,
             ],
             'corrupt message string handles newlines properly' => [
                 1,
                 2,
                 implode(PHP_EOL . PHP_EOL, str_split('漢字漢字漢字漢字漢字漢字漢字漢字漢', 10)),
                 10,
-                false
+                false,
             ],
         ];
     }
