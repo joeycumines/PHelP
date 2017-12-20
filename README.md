@@ -38,7 +38,9 @@ code reviews.
 This will be maintained, and at this stage I will be regularly adding 
 functionality - though it starts from almost nothing. I will be re-writing
 some features that I wrote before, some I have wanted before, and probably
-just doing what I want.
+just doing what I want. Eventually I plan to setup either subtrees, or some
+way to better package the dependencies, however until then, I will just be
+keeping everything in one place.
 
 ## Package Overview
 
