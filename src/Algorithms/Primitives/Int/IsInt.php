@@ -30,7 +30,7 @@ trait IsInt
      *
      * @return bool
      */
-    public function isInt($value)
+    private function isInt($value)
     {
         $type = gettype($value);
 

@@ -17,7 +17,7 @@ trait PregSplitKeep
      *
      * @return array[] The split segments, like [string, string|null][]
      */
-    public function pregSplitKeep($pattern, $subject, $limit = -1)
+    private function pregSplitKeep($pattern, $subject, $limit = -1)
     {
         $result = preg_split($pattern, $subject, $limit, PREG_SPLIT_OFFSET_CAPTURE);
 

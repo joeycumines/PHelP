@@ -6,7 +6,9 @@ use JoeyCumines\Phelp\Utility\Testing\AssertExactEquals;
 
 class DummyAssertExactEquals
 {
-    use AssertExactEquals;
+    use AssertExactEquals {
+        assertExactEquals as public;
+    }
 
     private $calls = [];
 

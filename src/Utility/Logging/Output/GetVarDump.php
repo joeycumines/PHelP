@@ -22,7 +22,7 @@ trait GetVarDump
      *
      * @return string
      */
-    public function getVarDump($value)
+    private function getVarDump($value)
     {
         ob_start();
         var_dump($value);
