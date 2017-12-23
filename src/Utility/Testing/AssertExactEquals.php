@@ -4,6 +4,7 @@ namespace JoeyCumines\Phelp\Utility\Testing;
 
 /**
  * Trait AssertExactEquals
+ *
  * @package JoeyCumines\Phelp\Utility\Testing
  *
  * A trait which gives your test cases access to a very useful exact equals assertion method, which has a formatted

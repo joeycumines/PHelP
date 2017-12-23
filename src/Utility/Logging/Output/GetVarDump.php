@@ -4,6 +4,7 @@ namespace JoeyCumines\Phelp\Utility\Logging\Output;
 
 /**
  * Trait GetVarDump
+ *
  * @package JoeyCumines\Phelp\Utility\Logging\Output
  *
  * Get the output of `var_dump` as a string, which is very useful given it is one of the most reliable (primitive)

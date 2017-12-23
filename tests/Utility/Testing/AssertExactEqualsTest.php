@@ -3,7 +3,6 @@
 namespace Tests\JoeyCumines\Phelp\Utility\Testing;
 
 use JoeyCumines\Phelp\Utility\Logging\Output\GetVarDump;
-use JoeyCumines\Phelp\Utility\Testing\AssertExactEquals;
 use PHPUnit\Framework\TestCase;
 
 class AssertExactEqualsTest extends TestCase

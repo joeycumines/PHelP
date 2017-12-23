@@ -6,5 +6,7 @@ use JoeyCumines\Phelp\Utility\Dependency\Singleton;
 
 class DummySingletonExtended extends DummySingleton
 {
-    use Singleton;
+    use Singleton {
+        getInstance as public;
+    }
 }

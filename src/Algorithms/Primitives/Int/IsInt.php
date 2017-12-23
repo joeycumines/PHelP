@@ -4,6 +4,7 @@ namespace JoeyCumines\Phelp\Algorithms\Primitives\Int;
 
 /**
  * Trait IsInt
+ *
  * @package JoeyCumines\Phelp\Algorithms\Primitives\Int
  *
  * It's as simple as it's name but not as simple as it seems, this trait provides a way to check if a value is an

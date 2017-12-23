@@ -68,7 +68,7 @@ class IsIntTest extends TestCase
             'object' => [new \stdClass(), false],
             'null' => [null, false],
             'true' => [true, false],
-            'false' => [false, false]
+            'false' => [false, false],
         ];
     }
 }

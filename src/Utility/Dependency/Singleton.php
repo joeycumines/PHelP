@@ -22,7 +22,7 @@ trait Singleton
      *
      * @return static
      */
-    public static function getInstance()
+    private static function getInstance()
     {
         // assert that `static` did `use Singleton;`, in a ternary to keep it able to be optimised to no cost
         // NOTE: that `var_export` nastiness is due to the scope not being inherited in assert pre PHP 7

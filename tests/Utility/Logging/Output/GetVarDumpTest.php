@@ -49,12 +49,14 @@ class GetVarDumpTest extends TestCase
                 <<<'EOT'
 int(123)
 EOT
+    ,
             ],
             [
                 'a string value',
                 <<<'EOT'
 string(14) "a string value"
 EOT
+    ,
             ],
             [
                 [1, 2, 3],
@@ -69,13 +71,14 @@ array(3) {
   int(3)
 }
 EOT
-                )
+                ),
             ],
             [
                 null,
                 <<<'EOT'
 NULL
 EOT
+    ,
             ],
         ];
     }
