@@ -11,6 +11,8 @@ namespace JoeyCumines\Phelp\Utility\Dependency;
  *
  * NOTE: if you extend a Singleton, you MUST also `use Singleton;`, a requirement that (if enabled) will be checked
  * by PHP assertions, on call to getInstance. Assertions are used for this simply because it's an expensive test.
+ *
+ * @NoHelper
  */
 trait Singleton
 {

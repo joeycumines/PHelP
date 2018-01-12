@@ -2,6 +2,7 @@
 
 namespace Tests\JoeyCumines\Phelp\Utility\Dependency;
 
+use JoeyCumines\Phelp\Utility\Dependency\Singleton;
 use PHPUnit\Framework\TestCase;
 
 class SingletonTest extends TestCase
@@ -29,4 +30,26 @@ class SingletonTest extends TestCase
         $this->expectException(\AssertionError::class);
         DummySingletonExtendedNoUse::getInstance();
     }
+}
+
+/*
+ * Test Resources
+ */
+
+class DummySingleton
+{
+    use Singleton {
+        getInstance as public;
+    }
+}
+
+class DummySingletonExtended extends DummySingleton
+{
+    use Singleton {
+        getInstance as public;
+    }
+}
+
+class DummySingletonExtendedNoUse extends DummySingleton
+{
 }

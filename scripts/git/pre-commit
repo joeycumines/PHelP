@@ -1,0 +1,23 @@
+#!/bin/sh
+
+rootDir=""
+
+if primary="$(git rev-parse --show-toplevel)" && [ -d "$primary" ] ; then
+    rootDir="$primary"
+elif secondary="$( ( cd "$(git rev-parse --git-dir)"'/..' && pwd ) )" && [ -d "$secondary" ] ; then
+    rootDir="$secondary"
+fi
+
+if [ -z "$rootDir" ] ; then
+    echo "could not locate the real git root directory, GIT_DIR=${GIT_DIR}" >&2
+    exit 1;
+fi
+
+if [ ! -d "$rootDir/.git" ] && [ ! -f "$rootDir/.git" ] ; then
+    echo "located git root directory '${rootDir}' but it didn't have any '.git' file or directory, GIT_DIR=${GIT_DIR}" >&2
+    exit 1;
+fi
+
+buildUuid="$(git rev-parse HEAD)""$(git status)"
+
+"$rootDir/scripts/build.php" -u "$buildUuid" || exit "$?"

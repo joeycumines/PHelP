@@ -1,0 +1,4 @@
+#src/Algorithms/* buildHelpers
+#src/Utility/* buildHelpers
+
+*.php buildHelpers
