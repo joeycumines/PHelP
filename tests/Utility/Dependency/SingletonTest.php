@@ -27,7 +27,7 @@ class SingletonTest extends TestCase
 
     public function testGetInstanceAssertionError()
     {
-        $this->expectException(\AssertionError::class);
+        $this->expectException(\Error::class);
         DummySingletonExtendedNoUse::getInstance();
     }
 }
