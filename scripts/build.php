@@ -48,6 +48,8 @@ date_default_timezone_set(TIMEZONE);
 
 require_once(ROOT_PATH . '/vendor/autoload.php');
 
+var_dump(ROOT_PATH, SOURCE_PATH, HELPER_PATH);
+
 // globals...
 /** @var array $localConfig Mutable version of LOCAL_CONFIG, written out on exit. */
 $localConfig = null;
@@ -326,7 +328,7 @@ function buildHelpers()
         $realPath = $path->getPath() . DIRECTORY_SEPARATOR . $path->getBasename();
 
         if ($realPath !== HELPER_PATH && true === $path->isDir()) {
-            mkdir(HELPER_PATH . substr($realPath, strlen(SOURCE_PATH)));
+            mkdir(HELPER_PATH . substr($realPath, strlen(SOURCE_PATH)), 0777, true);
         }
 
         if (
